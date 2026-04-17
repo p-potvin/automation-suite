@@ -1,7 +1,0 @@
-playwright>=1.40.0
-requests>=2.31.0
-pyyaml>=6.0
-pynput>=1.7.6
-time>=1.0
-random>=1.0
-uuid>=1.0
