@@ -1,0 +1,21 @@
+server:
+  # Optional allowlist of GitHub org/user owners.
+  allowed_owners: ["p-potvin", "VaultWares"]
+
+targets:
+  # Map GitHub repo full_name -> deploy settings
+  "p-potvin/vaultwares-docs":
+    branch: "main"
+    # Command runs on the VPS. It receives env:
+    #   VW_REPO_FULL_NAME, VW_REF, VW_AFTER, VW_DELIVERY, VW_EVENT
+    command: "/var/www/deploy-scripts/deploy-vaultwares-docs.sh"
+
+  "p-potvin/vaultwares-website":
+    branch: "main"
+    command: "/var/www/deploy-scripts/deploy-vaultwares-website.sh"
+
+notifications:
+  # Optional: run a command on failures (e.g. curl to your own endpoint).
+  # This runs with env:
+  #   VW_NOTIFY_TITLE, VW_NOTIFY_BODY
+  on_error_command: ""

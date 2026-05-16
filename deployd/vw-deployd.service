@@ -1,0 +1,16 @@
+[Unit]
+Description=VaultWares Deploy Webhook (vw-deployd)
+After=network.target
+
+[Service]
+Type=simple
+User=vwdeploy
+Group=vwdeploy
+WorkingDirectory=/opt/automation-suite
+EnvironmentFile=/etc/vw-deployd/env
+ExecStart=/usr/bin/python3 /opt/automation-suite/deployd/vw_deployd.py
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
