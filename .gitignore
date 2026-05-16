@@ -1,2 +1,4 @@
 *.bak
 QwenUncensored3.5_Local_Affiliate_Payout_Plan.md
+__pycache__/
+*.pyc
