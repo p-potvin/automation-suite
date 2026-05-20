@@ -1,6 +1,6 @@
-[submodule "vault-themes"]
-	path = vault-themes
-	url = https://github.com/p-potvin/vault-themes
-[submodule "vaultwares_agentciation"]
-	path = vaultwares_agentciation
-	url = https://github.com/p-potvin/vaultwares-agentciation
+[submodule "vaultwares-themes"]
+	path = vaultwares-themes
+	url = https://github.com/p-potvin/vaultwares-themes
+[submodule "vaultwares-adk"]
+	path = vaultwares-adk
+	url = https://github.com/p-potvin/vaultwares-adk

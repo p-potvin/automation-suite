@@ -1,20 +1,20 @@
 <!-- VAULT-THEMES-SUBMODULE:START -->
 ## Vault Themes Submodule Rules
 
-This repository includes `vault-themes`. Before changing UI, branding, design
+This repository includes `vaultwares-themes`. Before changing UI, branding, design
 systems, theme tokens, shared components, authentication UX, encrypted
 client-to-client communication UX, Figma-derived implementation, or agent/IDE
 instructions, read these stable root files:
 
-- `vault-themes/AGENTS.md`
-- `vault-themes/CONTEXT.md`
+- `vaultwares-themes/AGENTS.md`
+- `vaultwares-themes/CONTEXT.md`
 
 When the submodule has the cleaned layout, also read:
 
-- `vault-themes/brand/brand-guide.md`
-- `vault-themes/brand/tokens/tokens.ts`
+- `vaultwares-themes/brand/brand-guide.md`
+- `vaultwares-themes/brand/tokens/tokens.ts`
 
-Treat `vault-themes` as the shared VaultWares source of truth. Do not copy its
+Treat `vaultwares-themes` as the shared VaultWares source of truth. Do not copy its
 rules into this repo unless a tool-specific file requires a short pointer.
 <!-- VAULT-THEMES-SUBMODULE:END -->
 
@@ -23,7 +23,7 @@ rules into this repo unless a tool-specific file requires a short pointer.
 
 ## Overview
 
-The VaultWares Theming Skill provides agents and developers with a unified, framework-agnostic interface for applying, inspecting, and enforcing VaultWares design tokens and theming rules across any project. It abstracts the theme source of truth (`vault-themes/theme_manager.py`, `Brand/tokens.ts`, `VaultWares.Brand.xaml`) and provides usage patterns for Qt/PySide6, React/Tailwind, and WinUI3/XAML.
+The VaultWares Theming Skill provides agents and developers with a unified, framework-agnostic interface for applying, inspecting, and enforcing VaultWares design tokens and theming rules across any project. It abstracts the theme source of truth (`vaultwares-themes/theme_manager.py`, `Brand/tokens.ts`, `VaultWares.Brand.xaml`) and provides usage patterns for Qt/PySide6, React/Tailwind, and WinUI3/XAML.
 
 ## Capabilities
 - List all available VaultWares themes (name, accent, surface, style family)
