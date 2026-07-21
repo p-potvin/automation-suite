@@ -4,3 +4,8 @@ __pycache__/
 *.pyc
 
 .venv/
+.env
+logs/
+cookies/
+browser_profile/
+test-results/

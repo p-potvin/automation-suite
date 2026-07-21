@@ -1,7 +1,7 @@
 multilogin:
   api_key: "YOUR_MULTILogin_API_KEY"
   base_url: "https://api.multilogin.com/v1"
-  profile_name: "StackOverflow_Profile_01"
+  profile_name: "automation_profile_01"
   os_type: "Windows 10"
   browser: "Chrome"
 
@@ -10,7 +10,22 @@ automation:
   base_delay: 2.0
   max_delay: 5.0
   ip_rotation_interval: 5
-  captcha_api_key: "YOUR_2CAPTCHA_KEY" (Optional)
+  captcha_api_key: "YOUR_2CAPTCHA_KEY"
+
+stealth:
+  provider: "patchright"  # patchright | kameleo | multilogin
+  headless: false
+
+proxy:
+  # Priority: PROXY_URL env var > IPoasis > direct
+  # Set PROXY_URL=socks5://127.0.0.1:9050 for Tor
+  ipoasis_country: "US"
+
+crawl:
+  enabled: false
+  max_depth: 2
+  max_pages: 20
+  delay_ms: 750
 
 targets:
   - url: "https://stackoverflow.com"
@@ -18,3 +33,4 @@ targets:
     username_selector: "input[name='login']"
     password_selector: "input[name='password']"
     submit_selector: "input[type='submit']"
+
