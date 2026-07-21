@@ -39,7 +39,8 @@ def _get_proxy_config(proxy_config: Optional[dict] = None) -> Optional[dict]:
     return get_patchright_proxy()
 
 
-async def create_stealth_context(playwright, proxy_config: Optional[dict] = None, headless: bool = False):
+async def create_stealth_context(playwright, proxy_config: Optional[dict] = None,
+                               headless: bool = False, session_index: int = 0):
     """
     Create a stealth browser context using the configured provider.
     Returns (context, page, close_fn, provider_name).
@@ -51,13 +52,12 @@ async def create_stealth_context(playwright, proxy_config: Optional[dict] = None
         return await _create_kameleo_session(playwright, proxy, headless)
     if provider == "multilogin":
         return await _create_multilogin_session(playwright, proxy, headless)
-    return await _create_patchright_session(playwright, proxy, headless)
+    return await _create_patchright_session(playwright, proxy, headless, session_index)
 
 
-async def _create_patchright_session(playwright, proxy, headless):
-    from patchright.async_api import async_playwright
-
-    profile_dir = os.getenv("PATCHRIGHT_PROFILE_DIR", DEFAULT_PROFILE_DIR)
+async def _create_patchright_session(playwright, proxy, headless, session_index=0):
+    base_profile = os.getenv("PATCHRIGHT_PROFILE_DIR", DEFAULT_PROFILE_DIR)
+    profile_dir = base_profile if session_index == 0 else f"{base_profile}_s{session_index}"
     os.makedirs(profile_dir, exist_ok=True)
 
     launch_options = {
@@ -76,7 +76,7 @@ async def _create_patchright_session(playwright, proxy, headless):
     async def close():
         await context.close()
 
-    log.info("Started Patchright stealth session")
+    log.info("Started Patchright stealth session (profile=%s, session=%d)", profile_dir, session_index)
     return context, page, close, "patchright"
 
 

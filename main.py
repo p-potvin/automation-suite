@@ -61,7 +61,8 @@ async def run_single_session(session_index: int, target_config: dict, playwright
         log.info("[Session %d] Starting — target=%s proxy=%s", session_index, target_url,
                  metrics.proxy.get('server') if metrics.proxy else 'direct')
 
-        context, page, close_fn, provider = await create_stealth_context(playwright, proxy_config=proxy)
+        context, page, close_fn, provider = await create_stealth_context(playwright, proxy_config=proxy,
+                                                                         session_index=session_index)
         recorder.record('browser-launched', provider=provider, sessionIndex=session_index)
 
         try:
